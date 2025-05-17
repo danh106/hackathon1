@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminDocumentController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
@@ -53,5 +54,10 @@ Route::group(['prefix'=>'admin','middleware'=>'adminauth'],function(){
     ]);
 });
 Route::get('/',[HomeController::class,'index']);
+Route::get('/login',[AuthController::class,'login']);
+Route::post('/login',[AuthController::class,'checklogin']);
+// Route::get('/register',[AuthController::class,'index']);
+Route::get('/document/comment',[DocumentController::class,'comment'])->middleware('userauth');
 Route::get('/document/pdf/{document}',[DocumentController::class,'viewpdf']);
 Route::get('/document/{alias}/{document}',[DocumentController::class,'detail']);
+Route::get('/document/comment',[DocumentController::class,'comment'])->middleware('userauth');

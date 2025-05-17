@@ -143,7 +143,7 @@
 											 <h4 class="comment-reply-title" id="reply-title">Gửi Nhận xét <small> <a rel="nofollow" id="cancel-comment-reply-link" href="javascript:void(0)" style="display:none;">Cancel reply</a> </small></h4>
 											 <div class="clearfix">
 												<form method="post" id="comments_form" class="comment-form" novalidate>
-													<input type="hidden" id="c_BookId" value="@Model.BookId">
+													<input type="hidden" id="c_documentid" value="@Model.BookId">
 												   <p class="comment-form-comment"><textarea id="c_detail" placeholder="Type Comment Here" class="form-control4" name="comment" cols="45" rows="3" required="required"></textarea></p>
 												   <p class="col-md-12 col-sm-12 col-xs-12 form-submit">
 													  <button id="c_submit" type="button" class="submit btn btn-primary filled">
@@ -297,18 +297,18 @@
 		const notyf = new Notyf();
         $("#c_submit").click(function () {
             var _detail = $("#c_detail").val();
-            var _BookId = $("#c_BookId").val();
+            var _documentid = $("#c_documentid").val();
             $.ajax({
-                url: "/Book/Comment",
+                url: "/document/comment",
                 type: "POST",
                 data: {
                     detail: _detail,
-                    BookId:_BookId
+                    documentid:_documentid
                 },
                 success: function (result) {
                     if (result.status==true) {
                         $("#c_detail").val("");
-                        $("#c_BookId").val("");
+                        $("#c_documentid").val("");
 						notyf.success('Gửi thành công');
                         setTimeout(function () {
 							location.reload();
