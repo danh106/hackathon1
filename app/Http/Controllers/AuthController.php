@@ -42,11 +42,11 @@ class AuthController extends Controller{
                 session(['userlogin' => session('userlogin') + 1]);
                 return back()->withErrors(['username' => 'Tài khoản của bạn đã bị khóa vui lòng liên hệ admin.']);
             }
-            if ($user->role && $user->role->name != 'admin') {
-                auth()->logout();
-                session(['userlogin' => session('userlogin') + 1]);
-                return back()->withErrors(['username' => 'Bạn không phải admin.']);
-            }
+            // if ($user->role && $user->role->name != 'admin') {
+            //     auth()->logout();
+            //     session(['userlogin' => session('userlogin') + 1]);
+            //     return back()->withErrors(['username' => 'Bạn không phải admin.']);
+            // }
             $request->session()->regenerate();
             session(['userlogin' => session('userlogin') - 1]);
             return redirect()->intended('/');
