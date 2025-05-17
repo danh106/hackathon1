@@ -1,0 +1,23 @@
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h3>Thêm mới phân quyền</h3>
+<form action="" method="post" class="pb-2">
+    <div class="col">
+        <div class="py-1">
+            <label for="" class="fw-bold">Mã phân quyền</label>
+            <input class="form-control border-primary" type="text" name="RoleID" id="">
+        </div>
+        <div class="py-1">
+            <label for="" class="fw-bold">Tên phân quyền</label>
+            <input class="form-control border-primary" type="text" name="Name" id="">
+        </div>
+         <div class="py-1 d-flex flex-column">
+            <label for="" class="fw-bold">Mô tả phân quyền</label>
+            <textarea style="height: 200px;" name="Description" id=""></textarea>
+        </div>
+        <div class="py-1 d-flex flex">
+            <button type="submit" class="btn btn-primary ms-auto">them</button>
+        </div>
+    </div>
+</form>
